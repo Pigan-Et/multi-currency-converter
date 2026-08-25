@@ -7,66 +7,56 @@
 
 <title>固定汇率多币种换算器</title>
 
+
 <style>
 
 *{
-box-sizing:border-box;
-font-family:
--apple-system,
-BlinkMacSystemFont,
-"SF Pro Display",
-"PingFang SC",
-"Helvetica Neue",
-Arial,
-sans-serif;
+    box-sizing:border-box;
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "PingFang SC",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 
 body{
-margin:0;
-background:#f5f5f7;
-color:#1d1d1f;
-}
 
+    margin:0;
+    background:#f5f5f7;
+    color:#1d1d1f;
+
+}
 
 
 .container{
 
-max-width:760px;
-margin:40px auto;
-padding:20px;
+    max-width:720px;
+    margin:30px auto;
+    padding:20px;
 
 }
-
 
 
 .card{
 
-background:white;
-border-radius:32px;
-padding:32px;
+    background:white;
+    border-radius:26px;
+    padding:28px;
 
-box-shadow:
-0 20px 50px rgba(0,0,0,.08);
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
 
 }
-
 
 
 h1{
 
-font-size:30px;
-margin:0 0 8px;
-
-}
-
-
-
-.subtitle{
-
-font-size:14px;
-color:#86868b;
-margin-bottom:25px;
+    font-size:28px;
+    margin:0 0 25px;
 
 }
 
@@ -74,23 +64,12 @@ margin-bottom:25px;
 
 .currency-item{
 
-background:#fafafa;
+    border:1px solid #e5e5ea;
+    border-radius:18px;
 
-border:1px solid #e5e5ea;
+    padding:16px;
 
-border-radius:22px;
-
-padding:18px;
-
-transition:.25s;
-
-}
-
-
-
-.currency-item:hover{
-
-transform:translateY(-2px);
+    transition:.2s;
 
 }
 
@@ -98,9 +77,9 @@ transform:translateY(-2px);
 
 .currency-item.active{
 
-border:2px solid #007aff;
+    border:2px solid #007aff;
 
-background:#f0f7ff;
+    background:#f0f7ff;
 
 }
 
@@ -108,16 +87,20 @@ background:#f0f7ff;
 
 .cny-box{
 
-padding:24px;
+    margin-bottom:18px;
 
-margin-bottom:20px;
+}
 
-background:
-linear-gradient(
-135deg,
-#ffffff,
-#f5faff
-);
+
+
+.other-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
 
 }
 
@@ -125,13 +108,13 @@ linear-gradient(
 
 .currency-header{
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-align-items:center;
+    align-items:center;
 
-margin-bottom:10px;
+    margin-bottom:10px;
 
 }
 
@@ -139,9 +122,9 @@ margin-bottom:10px;
 
 .currency-name{
 
-font-size:16px;
+    font-size:15px;
 
-font-weight:700;
+    font-weight:600;
 
 }
 
@@ -149,9 +132,9 @@ font-weight:700;
 
 .rate{
 
-font-size:12px;
+    font-size:11px;
 
-color:#86868b;
+    color:#86868b;
 
 }
 
@@ -159,68 +142,19 @@ color:#86868b;
 
 input{
 
-width:100%;
+    width:100%;
 
-border:none;
+    border:none;
 
-outline:none;
+    outline:none;
 
-background:transparent;
+    background:transparent;
 
-font-size:32px;
+    font-size:25px;
 
-font-weight:700;
+    font-weight:600;
 
-}
-
-
-
-input::-webkit-inner-spin-button{
-
-display:none;
-
-}
-
-
-
-.other-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:14px;
-
-}
-
-
-
-.quick{
-
-display:flex;
-
-gap:10px;
-
-margin:20px 0;
-
-}
-
-
-
-.quick button{
-
-flex:1;
-
-border:none;
-
-background:#f2f2f7;
-
-padding:10px;
-
-border-radius:14px;
-
-cursor:pointer;
+    color:#1d1d1f;
 
 }
 
@@ -228,11 +162,11 @@ cursor:pointer;
 
 .buttons{
 
-display:flex;
+    display:flex;
 
-gap:12px;
+    gap:12px;
 
-margin-top:25px;
+    margin-top:22px;
 
 }
 
@@ -240,15 +174,17 @@ margin-top:25px;
 
 button{
 
-border:none;
+    flex:1;
 
-padding:15px;
+    border:none;
 
-border-radius:18px;
+    padding:14px;
 
-font-size:15px;
+    border-radius:16px;
 
-cursor:pointer;
+    font-size:15px;
+
+    cursor:pointer;
 
 }
 
@@ -256,9 +192,7 @@ cursor:pointer;
 
 .clear{
 
-flex:1;
-
-background:#f2f2f7;
+    background:#f2f2f7;
 
 }
 
@@ -266,51 +200,9 @@ background:#f2f2f7;
 
 .copy{
 
-flex:1;
+    background:#007aff;
 
-background:#007aff;
-
-color:white;
-
-}
-
-
-
-.toast{
-
-position:fixed;
-
-bottom:40px;
-
-left:50%;
-
-transform:
-translateX(-50%)
-translateY(20px);
-
-background:#1d1d1f;
-
-color:white;
-
-padding:12px 22px;
-
-border-radius:20px;
-
-opacity:0;
-
-transition:.3s;
-
-}
-
-
-
-.toast.show{
-
-opacity:1;
-
-transform:
-translateX(-50%)
-translateY(0);
+    color:white;
 
 }
 
@@ -318,44 +210,62 @@ translateY(0);
 
 @media(max-width:600px){
 
+
 .container{
 
-padding:12px;
+    margin:10px auto;
 
-margin:10px auto;
+    padding:12px;
 
 }
+
 
 
 .card{
 
-padding:20px;
+    padding:20px;
 
 }
 
 
+
 h1{
 
-font-size:24px;
+    font-size:22px;
 
 }
 
 
 .other-grid{
 
-grid-template-columns:
-repeat(2,1fr);
+    gap:8px;
+
+}
+
+
+.currency-item{
+
+    padding:12px;
 
 }
 
 
 input{
 
-font-size:25px;
+    font-size:20px;
 
 }
 
+
+.rate{
+
+    display:none;
+
 }
+
+
+}
+
 
 
 </style>
@@ -374,13 +284,8 @@ font-size:25px;
 
 
 <h1>
-💱 固定汇率换算器
+固定汇率多币种换算器
 </h1>
-
-
-<div class="subtitle">
-固定汇率工具 · 非实时市场汇率
-</div>
 
 
 
@@ -388,32 +293,10 @@ font-size:25px;
 
 
 
-<div class="quick">
-
-<button onclick="quick(10)">
-¥10
-</button>
-
-<button onclick="quick(50)">
-¥50
-</button>
-
-<button onclick="quick(100)">
-¥100
-</button>
-
-<button onclick="quick(500)">
-¥500
-</button>
-
-</div>
-
-
-
 <div class="buttons">
 
 <button class="clear" onclick="clearAll()">
-清空
+清空金额
 </button>
 
 
@@ -427,13 +310,10 @@ font-size:25px;
 
 </div>
 
+
 </div>
 
 
-
-<div class="toast" id="toast">
-复制成功
-</div>
 
 
 
@@ -446,7 +326,6 @@ const currencies=[
 {
 code:"CNY",
 name:"人民币",
-symbol:"¥",
 rate:1,
 decimal:1
 },
@@ -455,26 +334,15 @@ decimal:1
 {
 code:"SGD",
 name:"新加坡元",
-symbol:"S$",
 rate:0.18,
 decimal:1
 },
 
 
 {
-code:"MYR",
-name:"马来西亚令吉",
-symbol:"RM",
-rate:0.58,
-decimal:1
-},
-
-
-{
-code:"THB",
-name:"泰铢",
-symbol:"฿",
-rate:4.49,
+code:"VND",
+name:"越南盾",
+rate:3762,
 decimal:0
 },
 
@@ -482,26 +350,31 @@ decimal:0
 {
 code:"IDR",
 name:"印尼盾",
-symbol:"Rp",
 rate:2397,
 decimal:0
 },
 
 
 {
-code:"VND",
-name:"越南盾",
-symbol:"₫",
-rate:3762,
-decimal:0
+code:"MYR",
+name:"马来西亚令吉",
+rate:0.58,
+decimal:1
 },
 
 
 {
 code:"PHP",
 name:"菲律宾比索",
-symbol:"₱",
 rate:8.46,
+decimal:0
+},
+
+
+{
+code:"THB",
+name:"泰铢",
+rate:4.49,
 decimal:0
 }
 
@@ -513,6 +386,10 @@ decimal:0
 let values={};
 
 
+let active="CNY";
+
+
+
 currencies.forEach(c=>{
 
 values[c.code]=0;
@@ -520,44 +397,17 @@ values[c.code]=0;
 });
 
 
-let active="CNY";
 
-
-const list=
-document.getElementById(
-"currencyList"
-);
+const container=
+document.getElementById("currencyList");
 
 
 
-function format(value,c){
 
+function formatMoney(value,c){
 
-let num=Number(value);
-
-
-if(
-isNaN(num) ||
-value===undefined ||
-value===null
-){
-
-num=0;
-
-}
-
-
-return num.toLocaleString(
-"en-US",
-{
-
-minimumFractionDigits:c.decimal,
-
-maximumFractionDigits:c.decimal
-
-}
-
-);
+return Number(value)
+.toFixed(c.decimal);
 
 }
 
@@ -565,19 +415,16 @@ maximumFractionDigits:c.decimal
 
 
 
-function createCard(c){
+function createCurrencyCard(c){
 
 
-let div=
-document.createElement("div");
+const div=document.createElement("div");
 
 
-div.className=
-"currency-item";
+div.className="currency-item";
 
 
-div.dataset.code=
-c.code;
+div.dataset.code=c.code;
 
 
 
@@ -587,14 +434,14 @@ div.innerHTML=`
 
 <div class="currency-name">
 
-${c.symbol} ${c.name} ${c.code}
+${c.name} ${c.code}
 
 </div>
 
 
 <div class="rate">
 
-1 CNY ≈ ${c.rate.toLocaleString()} ${c.code}
+1 CNY = ${c.rate}
 
 </div>
 
@@ -602,42 +449,38 @@ ${c.symbol} ${c.name} ${c.code}
 </div>
 
 
-<input type="number" value="0">
+<input 
+type="number"
+step="any"
+value="0"
+/>
 
 `;
 
 
 
-let input=
+const input=
 div.querySelector("input");
 
 
 
 
-input.addEventListener(
-"focus",
-()=>{
+input.addEventListener("focus",()=>{
 
 
 active=c.code;
 
 
 document
-.querySelectorAll(
-".currency-item"
-)
+.querySelectorAll(".currency-item")
 .forEach(item=>{
 
-item.classList.remove(
-"active"
-);
+item.classList.remove("active");
 
 });
 
 
-div.classList.add(
-"active"
-);
+div.classList.add("active");
 
 
 });
@@ -646,16 +489,14 @@ div.classList.add(
 
 
 
-input.addEventListener(
-"input",
-()=>{
+input.addEventListener("input",()=>{
 
 
 active=c.code;
 
 
 let amount=
-Number(input.value)||0;
+parseFloat(input.value)||0;
 
 
 
@@ -667,13 +508,15 @@ if(c.code==="CNY"){
 
 cny=amount;
 
-}else{
+}
 
+else{
 
 cny=
 amount/c.rate;
 
 }
+
 
 
 
@@ -690,7 +533,7 @@ cny*item.rate;
 
 
 
-update();
+refreshInputs();
 
 
 });
@@ -706,13 +549,13 @@ return div;
 
 
 
-function update(){
+
+
+function refreshInputs(){
 
 
 document
-.querySelectorAll(
-".currency-item"
-)
+.querySelectorAll(".currency-item")
 .forEach(div=>{
 
 
@@ -731,24 +574,12 @@ div.querySelector("input");
 
 
 
+if(code!==active){
+
 input.value=
-format(
-values[code]||0,
+formatMoney(
+values[code],
 c
-);
-
-
-
-if(code===active){
-
-div.classList.add(
-"active"
-);
-
-}else{
-
-div.classList.remove(
-"active"
 );
 
 }
@@ -763,29 +594,29 @@ div.classList.remove(
 
 
 
-let main=
-createCard(
+// 创建人民币大卡片
+
+let cny=
+createCurrencyCard(
 currencies[0]
 );
 
 
-main.classList.add(
-"cny-box"
-);
+cny.classList.add("cny-box");
 
 
-list.appendChild(main);
+container.appendChild(cny);
 
 
+
+
+// 创建其他货币
 
 let grid=
-document.createElement(
-"div"
-);
+document.createElement("div");
 
 
-grid.className=
-"other-grid";
+grid.className="other-grid";
 
 
 
@@ -795,43 +626,16 @@ currencies
 
 
 grid.appendChild(
-createCard(c)
+createCurrencyCard(c)
 );
 
 
 });
 
 
-list.appendChild(grid);
 
+container.appendChild(grid);
 
-
-
-
-function quick(num){
-
-
-active="CNY";
-
-
-values.CNY=num;
-
-
-currencies.forEach(c=>{
-
-
-values[c.code]
-=
-num*c.rate;
-
-
-});
-
-
-update();
-
-
-}
 
 
 
@@ -842,9 +646,7 @@ function clearAll(){
 
 currencies.forEach(c=>{
 
-
 values[c.code]=0;
-
 
 });
 
@@ -852,11 +654,10 @@ values[c.code]=0;
 active="CNY";
 
 
-update();
+refreshInputs();
 
 
 }
-
 
 
 
@@ -864,17 +665,17 @@ update();
 function copyResult(){
 
 
-let text=
-"💱 固定汇率换算结果\n\n";
+let result=
+"固定汇率换算结果\n\n";
 
 
 
 currencies.forEach(c=>{
 
 
-text+=
+result+=
 
-`${c.symbol}${c.name} ${c.code}: ${format(values[c.code],c)}\n`;
+`${c.name} ${c.code}: ${formatMoney(values[c.code],c)}\n`;
 
 
 });
@@ -882,33 +683,10 @@ text+=
 
 
 navigator.clipboard
-.writeText(text)
+.writeText(result)
 .then(()=>{
 
-
-let toast=
-document.getElementById(
-"toast"
-);
-
-
-toast.classList.add(
-"show"
-);
-
-
-
-setTimeout(()=>{
-
-
-toast.classList.remove(
-"show"
-);
-
-
-},1500);
-
-
+alert("复制成功");
 
 });
 
@@ -916,7 +694,9 @@ toast.classList.remove(
 }
 
 
+
 </script>
+
 
 
 </body>
