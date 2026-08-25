@@ -1,199 +1,296 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>固定汇率多币种换算器</title>
 
+
 <style>
-* {
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont,
+
+*{
+    box-sizing:border-box;
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
     "SF Pro Display",
     "PingFang SC",
     "Helvetica Neue",
-    Arial, sans-serif;
-}
-
-body {
-    margin: 0;
-    background: #f5f5f7;
-    color: #1d1d1f;
-}
-
-.container {
-    max-width: 520px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 24px;
-    padding: 28px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
-
-h1 {
-    font-size: 26px;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    color:#86868b;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
-.warning {
-    background:#fff3cd;
-    color:#856404;
-    padding:12px;
-    border-radius:12px;
-    font-size:13px;
-    margin-bottom:20px;
+    Arial,
+    sans-serif;
 }
 
 
-.formula {
+body{
+
+    margin:0;
     background:#f5f5f7;
-    padding:14px;
-    border-radius:14px;
-    font-size:14px;
-    margin-bottom:20px;
+    color:#1d1d1f;
+
 }
 
 
-.currency-item {
-    padding:16px;
-    border-radius:18px;
-    margin-bottom:12px;
+.container{
+
+    max-width:720px;
+    margin:30px auto;
+    padding:20px;
+
+}
+
+
+.card{
+
+    background:white;
+    border-radius:26px;
+    padding:28px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+h1{
+
+    font-size:28px;
+    margin:0 0 25px;
+
+}
+
+
+
+.currency-item{
+
     border:1px solid #e5e5ea;
+    border-radius:18px;
+
+    padding:16px;
+
     transition:.2s;
+
 }
 
 
-.currency-item.active {
+
+.currency-item.active{
+
     border:2px solid #007aff;
+
     background:#f0f7ff;
+
 }
 
 
-.currency-header {
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
+
+.cny-box{
+
+    margin-bottom:18px;
+
 }
 
 
-.currency-name {
-    font-weight:600;
-}
 
+.other-grid{
 
-.rate {
-    color:#86868b;
-    font-size:12px;
-}
+    display:grid;
 
+    grid-template-columns:
+    repeat(3,1fr);
 
-input {
-    width:100%;
-    border:none;
-    outline:none;
-    font-size:24px;
-    background:transparent;
-    font-weight:500;
-}
-
-
-.buttons {
-    display:flex;
     gap:12px;
-    margin-top:20px;
+
 }
 
 
-button {
-    flex:1;
-    border:none;
-    padding:14px;
-    border-radius:14px;
+
+.currency-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.currency-name{
+
     font-size:15px;
-    cursor:pointer;
+
+    font-weight:600;
+
 }
 
 
-.clear {
-    background:#f2f2f7;
-}
 
+.rate{
 
-.copy {
-    background:#007aff;
-    color:white;
-}
+    font-size:11px;
 
-
-.footer {
-    text-align:center;
-    margin-top:20px;
     color:#86868b;
-    font-size:12px;
+
 }
+
+
+
+input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    color:#1d1d1f;
+
+}
+
+
+
+.buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+
+
+button{
+
+    flex:1;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+
+
+.clear{
+
+    background:#f2f2f7;
+
+}
+
+
+
+.copy{
+
+    background:#007aff;
+
+    color:white;
+
+}
+
 
 
 @media(max-width:600px){
 
+
 .container{
+
     margin:10px auto;
+
+    padding:12px;
+
 }
+
+
 
 .card{
+
     padding:20px;
+
 }
+
+
 
 h1{
+
     font-size:22px;
-}
 
 }
+
+
+.other-grid{
+
+    gap:8px;
+
+}
+
+
+.currency-item{
+
+    padding:12px;
+
+}
+
+
+input{
+
+    font-size:20px;
+
+}
+
+
+.rate{
+
+    display:none;
+
+}
+
+
+}
+
+
+
 </style>
 
 </head>
 
 
+
 <body>
+
 
 <div class="container">
 
+
 <div class="card">
 
-<h1>固定汇率多币种换算器</h1>
 
-<div class="subtitle">
-以人民币 CNY 为计算中枢
-</div>
+<h1>
+固定汇率多币种换算器
+</h1>
 
-
-<div class="warning">
-固定参数，不代表实时市场汇率
-</div>
-
-
-<div class="formula">
-换算逻辑：
-<br>
-任意币种 → 人民币 → 其他币种
-<br><br>
-当地货币 ÷ 固定汇率 = 人民币
-<br>
-人民币 × 固定汇率 = 当地货币
-</div>
 
 
 <div id="currencyList"></div>
+
 
 
 <div class="buttons">
@@ -207,24 +304,24 @@ h1{
 复制结果
 </button>
 
-</div>
 
-
-<div class="footer">
-所有汇率均为用户指定固定参数
 </div>
 
 
 </div>
 
+
 </div>
+
+
 
 
 
 <script>
 
 
-const currencies = [
+const currencies=[
+
 
 {
 code:"CNY",
@@ -233,12 +330,14 @@ rate:1,
 decimal:1
 },
 
+
 {
 code:"SGD",
 name:"新加坡元",
 rate:0.18,
 decimal:1
 },
+
 
 {
 code:"VND",
@@ -247,12 +346,14 @@ rate:3762,
 decimal:0
 },
 
+
 {
 code:"IDR",
 name:"印尼盾",
 rate:2397,
 decimal:0
 },
+
 
 {
 code:"MYR",
@@ -261,12 +362,14 @@ rate:0.58,
 decimal:1
 },
 
+
 {
 code:"PHP",
 name:"菲律宾比索",
 rate:8.46,
 decimal:0
 },
+
 
 {
 code:"THB",
@@ -275,47 +378,54 @@ rate:4.49,
 decimal:0
 }
 
+
 ];
 
 
+
 let values={};
+
 
 let active="CNY";
 
 
 
 currencies.forEach(c=>{
-    values[c.code]=0;
+
+values[c.code]=0;
+
 });
 
 
 
-const list=document.getElementById("currencyList");
+const container=
+document.getElementById("currencyList");
 
 
 
-function formatMoney(value,currency){
 
-    return Number(value)
-    .toFixed(currency.decimal);
+function formatMoney(value,c){
+
+return Number(value)
+.toFixed(c.decimal);
 
 }
 
 
 
-function render(){
-
-list.innerHTML="";
 
 
-currencies.forEach(c=>{
+function createCurrencyCard(c){
 
 
-let div=document.createElement("div");
+const div=document.createElement("div");
 
-div.className=
-"currency-item "+
-(active===c.code?"active":"");
+
+div.className="currency-item";
+
+
+div.dataset.code=c.code;
+
 
 
 div.innerHTML=`
@@ -323,77 +433,70 @@ div.innerHTML=`
 <div class="currency-header">
 
 <div class="currency-name">
+
 ${c.name} ${c.code}
+
 </div>
+
 
 <div class="rate">
-1 CNY = ${c.rate} ${c.code}
-</div>
+
+1 CNY = ${c.rate}
 
 </div>
 
 
-<input
+</div>
 
+
+<input 
 type="number"
-
 step="any"
-
-value="${formatMoney(values[c.code],c)}"
-
-data-code="${c.code}"
-
->
+value="0"
+/>
 
 `;
 
 
-let input=div.querySelector("input");
+
+const input=
+div.querySelector("input");
+
+
 
 
 input.addEventListener("focus",()=>{
 
-active=c.code;
-
-render();
-
-});
-
-
-input.addEventListener("input",(e)=>{
-
 
 active=c.code;
 
 
-let inputValue=
-parseFloat(e.target.value)||0;
+document
+.querySelectorAll(".currency-item")
+.forEach(item=>{
+
+item.classList.remove("active");
+
+});
 
 
-updateCurrency(
-c.code,
-inputValue
-);
+div.classList.add("active");
 
 
 });
 
 
-list.appendChild(div);
-
-
-});
-
-
-}
 
 
 
-function updateCurrency(code,inputValue){
+input.addEventListener("input",()=>{
 
 
-let c=
-currencies.find(x=>x.code===code);
+active=c.code;
+
+
+let amount=
+parseFloat(input.value)||0;
 
 
 
@@ -401,37 +504,145 @@ let cny;
 
 
 
-if(code==="CNY"){
+if(c.code==="CNY"){
 
-cny=inputValue;
+cny=amount;
 
 }
 
 else{
 
-cny=inputValue/c.rate;
+cny=
+amount/c.rate;
 
 }
+
+
 
 
 
 currencies.forEach(item=>{
 
+
 values[item.code]
 =
 cny*item.rate;
 
+
 });
 
 
-render();
+
+refreshInputs();
+
+
+});
+
+
+
+return div;
 
 
 }
 
 
 
+
+
+
+
+function refreshInputs(){
+
+
+document
+.querySelectorAll(".currency-item")
+.forEach(div=>{
+
+
+let code=
+div.dataset.code;
+
+
+let c=
+currencies.find(
+x=>x.code===code
+);
+
+
+let input=
+div.querySelector("input");
+
+
+
+if(code!==active){
+
+input.value=
+formatMoney(
+values[code],
+c
+);
+
+}
+
+
+});
+
+
+}
+
+
+
+
+
+// 创建人民币大卡片
+
+let cny=
+createCurrencyCard(
+currencies[0]
+);
+
+
+cny.classList.add("cny-box");
+
+
+container.appendChild(cny);
+
+
+
+
+// 创建其他货币
+
+let grid=
+document.createElement("div");
+
+
+grid.className="other-grid";
+
+
+
+currencies
+.slice(1)
+.forEach(c=>{
+
+
+grid.appendChild(
+createCurrencyCard(c)
+);
+
+
+});
+
+
+
+container.appendChild(grid);
+
+
+
+
+
+
 function clearAll(){
+
 
 currencies.forEach(c=>{
 
@@ -442,31 +653,37 @@ values[c.code]=0;
 
 active="CNY";
 
-render();
+
+refreshInputs();
+
 
 }
+
 
 
 
 function copyResult(){
 
 
-let text="固定汇率多币种换算结果\n\n";
+let result=
+"固定汇率换算结果\n\n";
+
 
 
 currencies.forEach(c=>{
 
-text+=
+
+result+=
+
 `${c.name} ${c.code}: ${formatMoney(values[c.code],c)}\n`;
+
 
 });
 
 
-text+=
-"\n汇率为固定参数，不代表实时市场汇率";
 
-
-navigator.clipboard.writeText(text)
+navigator.clipboard
+.writeText(result)
 .then(()=>{
 
 alert("复制成功");
@@ -478,10 +695,8 @@ alert("复制成功");
 
 
 
-render();
-
-
 </script>
+
 
 
 </body>
